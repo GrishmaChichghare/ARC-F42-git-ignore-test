@@ -1,44 +1,62 @@
+/* eslint-disable no-unused-vars */
 import "./App.css";
 import Categories from "./components/categories";
 import Nav from "./components/nav";
 import SubCategories from "./components/subCategories";
 
+const usersDetails = [
+    {
+    id : 1,
+    name : "rajesh",
+    status : "active",
+    email : "rajesh@gmail.com",
+    domain : "Fullstack"
+},
+{
+    id : 2,
+    name : "vishnu",
+    status : "active",
+    email : "vishnu@gmail.com",
+    domain : "Fullstack"
+},
+{
+    id : 3,
+    name : "suresh",
+    status : "active",
+    email : "suresh@gmail.com",
+    domain : "Fullstack"
+},
+{
+    id : 4,
+    name : "ramesh",
+    status : "active",
+    email : "ramesh@gmail.com",
+    domain : "Fullstack"
+},
+]
 const MyApp = () => {
+    return(
+      <div className="main-cont">
+            {
+                usersDetails.map(each => {
+                    const {name,status,email,domain} = each;
 
-    return (
-
-        <div className="main-cont">
-
-            <nav className="my-nav">
-                <Nav/>
-            </nav>
-
-            <br />
-            <div className="container">
-                <div className="row">
-
-                    <div className="col-8 left">
-                        <Categories/>
-                    </div>
-
-                    <div className="col-4 right">
-
-                        <div className="right-top">
-                            <SubCategories/>
-                        </div>
-
-                        <div className="right-bottom"></div>
-                    </div>
-                </div>
-            </div>
-            <section className="container">
-                <div className="row">
-                    <div className="col-4 mid-left"></div>
-                    <div className="col-4 mid-mid"></div>
-                    <div className="col-4 mid-right"></div>
-                </div>
-            </section>
-        </div>
+                    return(
+                        <li className="my-list p-3 shadow w-50 rounded-lg">
+                            <div className="profile">
+                                <h3>{name[0]}</h3>
+                            </div>
+                            <div className="my-content border-left border-danger ml-3 p-3">
+                                <h3>{name}</h3>
+                                <b>Email: {email}</b>
+                                <br />
+                                <span>Domain: {domain}</span>
+                            </div>
+                        </li>
+                    ) 
+                })
+            }
+     </div>
     )
 }
 
