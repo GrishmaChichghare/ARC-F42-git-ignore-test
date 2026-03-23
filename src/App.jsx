@@ -1,5 +1,19 @@
+/* eslint-disable no-unused-vars */
 import { useState}from "react";
 import "./App.css";
+
+function myFunc(value){
+    let abc = value;
+
+    function change(v1){
+        abc = v1;
+    }
+    
+    return [abc,change];
+}
+
+const [heading, setHeading] = myFunc("hello World");
+
 
 const MyApp = () => {
     const [heading, setHeading] = useState("Hello World");
