@@ -1,47 +1,20 @@
 
 import "./App.css";
-import Categories from "./components/categories";
 
-const usersDetails = [
-    {
-    id : 1,
-    name : "rajesh",
-    status : "active",
-    email : "rajesh@gmail.com",
-    domain : "Fullstack"
-},
-{
-    id : 2,
-    name : "vishnu",
-    status : "deactive",
-    email : "vishnu@gmail.com",
-    domain : "Fullstack"
-},
-{
-    id : 3,
-    name : "suresh",
-    status : "active",
-    email : "suresh@gmail.com",
-    domain : "Fullstack"
-},
-{
-    id : 4,
-    name : "ramesh",
-    status : "active",
-    email : "ramesh@gmail.com",
-    domain : "Fullstack"
-},
-]
 const MyApp = () => {
+    let heading = "Hello World";
 
-    
-    return(
-      <ul className="main-cont">
-        {
-            usersDetails.map( each => <Categories key = {each.id} user = {each}/>)
-        }
-    </ul>
-    )
+    const onChangeHeading = () => {
+        heading = "Heading changed";
+        console.log(heading);
+    }
+
+    return (
+        <div className="main-cont">
+            <h1>{heading}</h1>
+            <button onClick={onChangeHeading} className="btn btn-primary">change heading</button>
+        </div>
+    );
 }
 
 export default MyApp;
