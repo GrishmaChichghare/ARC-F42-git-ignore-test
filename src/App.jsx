@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState}from "react";
 import "./App.css";
 
@@ -16,15 +15,16 @@ const [heading, setHeading] = myFunc("hello World");
 
 
 const MyApp = () => {
-    const [heading, setHeading] = useState("Hello World");
+    const [a,b] = useState("Hello World");
 
     const onChangeHeading = () => {
-        setHeading("Heading has been changed");
+        b("Heading has been changed");
     }
 
     return (
         <div className="main-cont">
-            <h1>{heading}</h1>
+            <h1>{a}</h1>
+            <br />
             <button onClick={onChangeHeading} className="btn btn-primary">change heading</button>
         </div>
     );
