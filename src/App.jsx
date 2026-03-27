@@ -1,27 +1,33 @@
 import { useState}from "react";
+import Categories from "./components/categories";
 import "./App.css";
 
-
 const MyApp = () => {
-    const [heading,setHeading] = useState("Hello World");
-    const [counter,setCounter] = useState(0);
+    const [allValues,setValues] = useState({
+        heading : "Hello World",
+        counter : 0
+    });
+    // const [counter,setCounter] = useState(0);
+    console.log("hiiii");
 
     const onChangeHeading = () => {
-        setHeading("Heading has been changed");
+        setValues({...allValues, heading: "Heading has been Changed"});
     }
 
     return (
         <div className="main-cont">
-            <h1>{heading}</h1>
+            <h1>{allValues.heading}</h1>
             <br />
             <button onClick={onChangeHeading} className="btn btn-primary">change heading</button>
             <br />
-            <h1 className="my-heading">{counter}</h1>
+            <h1 className="my-heading">{allValues.counter}</h1>
             <br />
             <div>
-                <button onClick={()=>{setCounter(counter-1)}} className="btn btn-danger mr-3">DEC</button>
-                <button onClick={()=>{setCounter(counter+1)}} className="btn btn-success">INC</button>
+                <button onClick={()=>{setValues({...allValues,counter:allValues.counter-1})}} className="btn btn-danger mr-3">DEC</button>
+                <button onClick={()=>{setValues({...allValues,counter:allValues.counter+1})}} className="btn btn-success">INC</button>
             </div>
+            <br />
+            <Categories counter = {allValues.counter} />
         </div>
     );
 }
