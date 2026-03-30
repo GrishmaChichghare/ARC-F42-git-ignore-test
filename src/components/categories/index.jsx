@@ -1,4 +1,5 @@
 const Categories = ({counter}) => {
+    
         return(
         <h1> This counter provided by App component : {counter}</h1>
     )
