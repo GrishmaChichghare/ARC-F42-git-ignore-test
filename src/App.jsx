@@ -8,7 +8,6 @@ const MyApp = () => {
         
         heading : "Hello World",
         counter : 0
-
     });
     
     useEffect(() =>{

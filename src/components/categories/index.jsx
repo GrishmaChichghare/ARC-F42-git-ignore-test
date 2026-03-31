@@ -4,7 +4,6 @@ const Categories = ({counter}) => {
         <h1> This counter provided by App component : {counter}</h1>
     )
     
-    
     // return(
     //     <li className="my-list p-3 shadow w-50 rounded-lg text-red-50">
     //         <div className="profile">
