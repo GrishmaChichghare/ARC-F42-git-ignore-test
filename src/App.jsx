@@ -1,52 +1,37 @@
-import { useEffect, useState}from "react";
-import Categories from "./components/categories";
-import "./App.css";
+import './App.css';
+import { useEffect, useState } from 'react';
 
 const MyApp = () => {
 
-    const [allValues,setValues] = useState({ 
-        
-        heading : "Hello World",
-        counter : 0
+    const [allValues, setValues] = useState({
+        heading : ""
     });
     
-    useEffect(() =>{
-        
-        let interval = setInterval(() =>{
+    useEffect(() => {
+        const fetchJokes = async() => {
+            const api = "https://apis.ccbp.in/jokes/random";
 
-          setValues({...allValues, counter: allValues.counter+1});
-        },1000);
-          return() =>{clearInterval(interval)};
-    });
-    
-    const onChangeHeading = () => {
+            try{
+                const response = await fetch(api);
+                const data = await response.json();
 
-        setValues({...allValues, heading: "Heading has been Changed"});
-    }
+                console.log(data);
 
-    return (
-
-        <div className="main-cont">
-
-            <h1>{allValues.heading}</h1>
-            <br />
-
-            <button onClick={onChangeHeading} className="btn btn-primary">change heading</button>
-            <br />
-
-            <h1 className="my-heading">{allValues.counter}</h1>
-            <br />
-
-            <div>
-                <button onClick={()=>{setValues({...allValues,counter:allValues.counter-1})}} className="btn btn-danger mr-3">DEC</button>
-                <button onClick={()=>{setValues({...allValues,counter:allValues.counter+1})}} className="btn btn-success">INC</button>
-            </div>
-            <br />
-
-            <Categories counter = {allValues.counter} />
-
+                setValues({...allValues, heading : data.value});
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+        fetchJokes();
+    },[])
+    return(
+        <div className='main-cont'>
+            {/* <button onClick={fetchJokes} className='btn btn-primary'>Fetch Data</button> */}
+            <br /><br />
+            <h2>{allValues.heading}</h2>
         </div>
-    );
+    )
 }
 
 export default MyApp;
