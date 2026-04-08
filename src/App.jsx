@@ -1,9 +1,9 @@
 import './App.css';
-
+import { useState } from 'react';
 
 const MyApp = () =>{
     const [allValues,setValues] = useState({
-        heading;
+        heading: ""
     });
     const fetchJokes = async () => {
         const api = "https://apis.ccbp.in/jokes/random";
