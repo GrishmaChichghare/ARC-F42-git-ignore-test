@@ -20,10 +20,10 @@ const MyApp = () =>{
             console.log(error);
         }
     }
-
+    fetchJokes();
     return(
         <div className='main-cont'>
-            <button onClick={fetchJokes} className='btn btn-primary'>Fetch Data</button> 
+            {/* <button onClick={fetchJokes} className='btn btn-primary'>Fetch Data</button>  */}
             <br /><br />
             <h2>{allValues.heading}</h2>
         </div>
