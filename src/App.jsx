@@ -2,13 +2,12 @@ import './App.css';
 import { useState } from 'react';
 
 const MyApp = () =>{
-
     const [allValues, setValues] = useState({
+        
         heading: ""
     });
 
     const fetchJokes = async () => {
-
         const api = "https://apis.ccbp.in/jokes/random";
 
         try{
@@ -21,14 +20,13 @@ const MyApp = () =>{
             console.log(error);
         }
     }
-
+    fetchJokes();
     return(
         <div className='main-cont'>
-            {/* <button onClick={fetchJokes} className='btn btn-primary'>Fetch Data</button> */}
+            {/* <button onClick={fetchJokes} className='btn btn-primary'>Fetch Data</button>  */}
             <br /><br />
             <h2>{allValues.heading}</h2>
         </div>
     )
-    
 }
 export default MyApp;
