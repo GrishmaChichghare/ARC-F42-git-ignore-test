@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+
 
 const MyApp = () =>{
 
@@ -29,6 +29,5 @@ const MyApp = () =>{
             <h2>{allValues.heading}</h2>
         </div>
     )
-    
 }
 export default MyApp;
