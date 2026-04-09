@@ -10,7 +10,7 @@ const MyApp = () =>{
         errorMsg : ""
     });
 
-    const createNewuser = async (event) => {
+    const createNewuser = async (event) =>{
         event.preventDefault();
 
         // console.log(event);
@@ -27,12 +27,13 @@ const MyApp = () =>{
         const options = {
             method : "Post",
             headers: {
-                "content-type": "application/json",
-                'Authorization': "Bearer 9b1c8e7a0d1f2c5e4b3a6d8f9e0a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2g3h4i5j6k7l8m9n0o1p2q3r4s5t6u7v8w9x0y1z2a3b4c5d6e7f8g9h0i1j2k3l4m5n6o7p8q9r0s1t2u3v4w5x6y7z8a9b0c1d2e3f4g5h6i7j8k9l0m1n2o3p4q5r6s7t8u9v0w1x2y3z4a5b6c7d8e9f0g1h2i3j4k5l6m7n8o9p0q1r2s3t4u5v6w7x8y9z"
+                "Content-type": "application/json",
+                Authorization : "Bearer 01cecd880c96b72a5052b5d910889a2228e8b2d7618c0ad26320b95bdf8c9493."
                 
             },
             body: JSON.stringify(userDetails)
         }
+
         try{
             const response = await fetch(api, options);
             const data = await response.json();
@@ -43,7 +44,7 @@ const MyApp = () =>{
                 setValues({...allValues, errorMsg : ""});
             }
             else{
-                setValues({...allValues, errorMsg : data[0].field + ""+data[0].message});
+                setValues({...allValues, errorMsg : data[0].field + ""+ data[0].message});
             }
              // console.log(data[0].field + " " + data[0].message);
         }
