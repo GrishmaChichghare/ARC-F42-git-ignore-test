@@ -1,12 +1,13 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const MyApp = () =>{
     const [allValues, setValues] = useState({
         name : "",
         email : "",
         gender : "",
-        status : "Active"
+        status : "Active",
+        errorMsg : ""
     });
 
     const createNewuser = async (event) => {
@@ -35,7 +36,16 @@ const MyApp = () =>{
         try{
             const response = await fetch(api, options);
             const data = await response.json();
+            console.log(response);
             console.log(data);
+
+            if(response.ok){
+                setValues({...allValues, errorMsg : ""});
+            }
+            else{
+                setValues({...allValues, errorMsg : data[0].field + ""+data[0].message});
+            }
+             // console.log(data[0].field + " " + data[0].message);
         }
         catch(error){
             console.log(error);
@@ -60,7 +70,7 @@ const MyApp = () =>{
                 <br />
 
                 <label htmlFor="email">Email :</label>
-                <input className='form-control' type="text" id="email" />
+                <input onChange={(event) => setValues({...allValues, email : event.target.value})} className='form-control' type="text" id="email" />
                 <br />
 
                 <p>Gender : </p>
@@ -80,7 +90,7 @@ const MyApp = () =>{
                 <br />
 
                 <button type="submit" className='btn btn-primary'>Login </button>
-            
+                <b>{allValues.errorMsg}</b>
             </form>
             
         </div>
