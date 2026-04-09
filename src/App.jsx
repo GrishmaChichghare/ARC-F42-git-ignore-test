@@ -1,11 +1,13 @@
 import './App.css';
-// import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const MyApp = () =>{
-    // const [allValues, setValues] = useState({
-        
-    //     heading: ""
-    // });
+    const [allValues, setValues] = useState({
+        name : "",
+        email : "",
+        gender : "",
+        status : "Active"
+    });
 
     const createNewuser = async (event) => {
         event.preventDefault();
@@ -15,10 +17,10 @@ const MyApp = () =>{
         const api = "https://gorest.co.in/public/v2/users";
 
         const userDetails = {
-            name: "Samiksha",
-            email : "samiksha@gmail.com",
-            gender : "Female",
-            status : "active"
+            name: allValues.name,
+            email : allValues.email,
+            gender : allValues.gender,
+            status : allValues.status
         }
 
         const options = {
@@ -39,6 +41,10 @@ const MyApp = () =>{
             console.log(error);
         }
     }
+    const onChangeName = (event) => {
+        // console.log(event.target.value);
+        setValues({...allValues, name : event.target.value});
+    }
 
 
     return(
@@ -50,7 +56,7 @@ const MyApp = () =>{
 
             <form className='my-form shadow w-50 p-4 rounded' onSubmit={createNewuser}>
                 <label htmlFor="name">Name :</label>
-                <input className='form-control' type="text" id="name" />
+                <input onChange={onChangeName} className='form-control' type="text" id="name" />
                 <br />
 
                 <label htmlFor="email">Email :</label>
@@ -68,8 +74,8 @@ const MyApp = () =>{
 
                 <p>Status:</p>         
                 <select name="status" className='form-control'>
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
                 </select>
                 <br />
 
