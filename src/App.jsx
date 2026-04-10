@@ -44,6 +44,7 @@ const MyApp = () =>{
                 setValues({...allValues, errorMsg : ""});
             }
             else{
+                console.log(response);
                 setValues({...allValues, errorMsg : data[0].field + ""+ data[0].message});
             }
              // console.log(data[0].field + " " + data[0].message);
