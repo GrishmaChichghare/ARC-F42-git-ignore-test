@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const MyApp = () =>{
     const [allValues, setValues] = useState({
