@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
-import { useState } from 'react';
 
 
 const App = () => {
@@ -9,20 +8,20 @@ const App = () => {
         showLoader : false  //true if check loader, false if not
     });
 
-    useEffect(() => {
-        const fetchusers = async ()=> {
-            setValues({...allValues, showLoader : true});
+        const deleteUserData = async ()=> {
             
-            const api = "https://gorest.co.in/public/v2/users";
+            const api = "https://api.restful-api.dev/objects/ff8081819d82fab6019d8793128705b7";
 
+            const options  = {
+                method : "Delete"
+            }
+            
             try {
-                const response = await fetch (api);
+                const response = await fetch (api, options);
                 const data = await response.json();
 
                 if( response.ok){
                     console.log(data);
-
-                    setValues({...allValues, usersArr : data , showLoader :false}); //if u want to show loader, then set showloader true (or delete this show loader false).     
                 }
             }
             catch(error){
@@ -30,27 +29,10 @@ const App = () => {
                 console.error( error);
             }
         }
-        fetchusers();
-    },[]);
-
+        
     return(
         <div className='main-cont'>
-
-           {
-            allValues.showLoader 
-            ?
-            <div class="spinner-border text-primary" role="status">+
-                <span class="sr-only">Loading...</span>
-            </div>
-            : 
-            (
-                <ul>
-                {
-                    allValues.usersArr.map(each => <li key={each.id}> <h3>{each.name}</h3></li>)
-                }
-                </ul>
-            )
-           }
+            <button onClick={deleteUserData} className='btn btn-primary'>Delete</button>
         </div>
     )
 }
