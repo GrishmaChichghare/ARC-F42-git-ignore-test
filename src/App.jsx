@@ -6,11 +6,12 @@ import { useState } from 'react';
 const App = () => {
     const [allValues, setValues] = useState({
         usersArr : [],
-        showLoader : false
+        showLoader : false  //true if check loader, false if not
     });
 
     useEffect(() => {
         const fetchusers = async ()=> {
+            setValues({...allValues, showLoader : true});
             
             const api = "https://gorest.co.in/public/v2/users";
 
@@ -21,7 +22,7 @@ const App = () => {
                 if( response.ok){
                     console.log(data);
 
-                    setValues({...allValues, usersArr : data});
+                    setValues({...allValues, usersArr : data , showLoader :false}); //if u want to show loader, then set showloader true (or delete this show loader false).     
                 }
             }
             catch(error){
@@ -36,13 +37,18 @@ const App = () => {
         <div className='main-cont'>
 
            {
-            allValues.showLoader ? <h1></h1> : (
+            allValues.showLoader 
+            ?
+            <div class="spinner-border text-primary" role="status">+
+                <span class="sr-only">Loading...</span>
+            </div>
+            : 
+            (
                 <ul>
-            {
-                allValues.usersArr.map(each => <li key={each.id}> <h3>{each.name}</h3></li>)
-            }
-           </ul>
-
+                {
+                    allValues.usersArr.map(each => <li key={each.id}> <h3>{each.name}</h3></li>)
+                }
+                </ul>
             )
            }
         </div>
