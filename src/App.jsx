@@ -19,7 +19,7 @@ const App = () => {
             <h1 ref={heading}>Hello World</h1>
             <br />
 
-            <button onClick={changeHeading} className='btn btn-primary'>change</button>
+            <button onClick={changeHeading} className='btn btn-primary'>Change</button>
         </div>
     )
 }
