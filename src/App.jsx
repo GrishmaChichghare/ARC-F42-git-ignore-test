@@ -5,11 +5,12 @@ import './App.css';
 const App = () => {
 
     let heading = useRef();
+
     const changeHeading =() =>{
         // console.log(heading.current);
+
         heading.current.textContent = "Heading has been changed";
         heading.current.style.color = "red";
-
     }
     
     return(
@@ -18,7 +19,7 @@ const App = () => {
             <h1 ref={heading}>Hello World</h1>
             <br />
 
-            <button onClick={changeHeading} className='btn btn-primary'>Change</button>
+            <button onClick={changeHeading} className='btn btn-primary'>change</button>
         </div>
     )
 }
