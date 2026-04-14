@@ -1,38 +1,24 @@
-import { useEffect, useState } from 'react';
+import{useRef} from 'react';
 import './App.css';
 
 
 const App = () => {
-    const [allValues, setValues] = useState({
-        usersArr : [],
-        showLoader : false  //true if check loader, false if not
-    });
 
-        const deleteUserData = async ()=> {
-            
-            const api = "https://api.restful-api.dev/objects/ff8081819d82fab6019d8793128705b7";
+    let heading = useRef();
+    const changeHeading =() =>{
+        // console.log(heading.current);
+        heading.current.textContent = "Heading has been changed";
+        heading.current.style.color = "red";
 
-            const options  = {
-                method : "Delete"
-            }
-            
-            try {
-                const response = await fetch (api, options);
-                const data = await response.json();
-
-                if( response.ok){
-                    console.log(data);
-                }
-            }
-            catch(error){
-                
-                console.error( error);
-            }
-        }
-        
+    }
+    
     return(
         <div className='main-cont'>
-            <button onClick={deleteUserData} className='btn btn-primary'>Delete</button>
+
+            <h1 ref={heading}>Hello World</h1>
+            <br />
+
+            <button onClick={changeHeading} className='btn btn-primary'>Change</button>
         </div>
     )
 }
