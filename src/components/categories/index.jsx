@@ -1,23 +1,26 @@
-const Categories = ({counter}) => {
+import { useCounter } from '../../customHook';
+const myStyle = {
+    color : "black",
+    fontSize : "60px"
+};
+
+const Categories = () => {
+        const [counter,incCounter,decCounter] = useCounter();
     
-        return(
-        <h1> This counter provided by App component : {counter}</h1>
+
+       return(
+        <div className='main-cont'>
+            <h3>Categories component</h3>
+
+            <h1 style={myStyle}>{counter}</h1>
+            <br />
+
+            <div>
+                <button onClick={() => {decCounter()}} className='btn btn-danger mr-4'>DEC</button>
+                <button onClick={() => {incCounter()}} className='btn btn-success'>INC</button>
+            </div>
+        </div>
+        
     )
-    
-    // return(
-    //     <li className="my-list p-3 shadow w-50 rounded-lg text-red-50">
-    //         <div className="profile">
-    //             <h1>{name[0]}</h1>
-    //         </div>
-
-    //         <div className="my-content border-left border-danger ml-3 p-3">
-    //             <h3>{name}</h3>
-    //             <b>Email : {email}</b>
-    //             <br />
-    //             <span> Domain : {domain}</span>
-    //         </div>
-    //     </li>
-
-    // )
 }
 export default Categories;

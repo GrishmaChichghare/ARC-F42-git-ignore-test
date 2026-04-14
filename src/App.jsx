@@ -1,5 +1,6 @@
-import{useRef} from 'react';
+import Categories from './components/categories';
 import './App.css';
+import { useCounter } from './customHook';
 
 const myStyle = {
     color : "blue",
@@ -8,18 +9,28 @@ const myStyle = {
 
 const App = () => {
 
+    const [counter,incCounter,decCounter] = useCounter();
     
     return(
-        <div className='main-cont'>
+        
+        <>
 
-            <h1 style={myStyle}>0</h1>
+        <div className='main-cont'>
+            <h3>App Component</h3>
+
+            <h1 style={myStyle}>{counter}</h1>
             <br />
 
             <div>
-                <button onClick={() => {}} className='btn btn-danger mr-4'>INC</button>
-                <button onClick={() => {}} className='btn btn-success'>DEC</button>
+                <button onClick={() => {decCounter()}} className='btn btn-danger mr-4'>DEC</button>
+                <button onClick={() => {incCounter()}} className='btn btn-success'>INC</button>
             </div>
         </div>
+
+        <hr /><hr/>
+        <Categories/>
+
+        </>
         
     )
 }
