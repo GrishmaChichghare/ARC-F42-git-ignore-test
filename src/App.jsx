@@ -4,23 +4,19 @@ import './App.css';
 
 const App = () => {
 
-    let heading = useRef();
-
-    const changeHeading =() =>{
-        // console.log(heading.current);
-
-        heading.current.textContent = "Heading has been changed";
-        heading.current.style.color = "red";
-    }
     
     return(
         <div className='main-cont'>
 
-            <h1 ref={heading}>Hello World</h1>
+            <h1 style={{color: "red"}}>0</h1>
             <br />
 
-            <button onClick={changeHeading} className='btn btn-primary'>Change</button>
+            <div>
+                <button onClick={() => {}} className='btn btn-primary mr-4'>INC</button>
+                <button onClick={() => {}} className='btn btn-primary'>DEC</button>
+            </div>
         </div>
+        
     )
 }
 export default App;
