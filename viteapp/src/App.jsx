@@ -2,7 +2,10 @@ import Categories from './components/categories';
 import './App.css';
 import { useCounter } from './customHook';
 
-const myStyle = { color : "blue", fontSize : "60px"};
+const myStyle = {
+    color : "blue",
+    fontSize : "60px"
+};
 
 const App = () => {
 
@@ -27,7 +30,8 @@ const App = () => {
         <hr /><hr/>
         <Categories/>
 
-        </>   
+        </>
+        
     )
 }
 export default App;
