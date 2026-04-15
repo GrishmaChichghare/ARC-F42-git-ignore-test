@@ -1,23 +1,16 @@
-import Categories from './components/categories';
-import './App.css';
-import { useCounter } from './customHook';
-
+import { useCounter } from '../../customHook';
 const myStyle = {
-    color : "blue",
+    color : "black",
     fontSize : "60px"
 };
 
-
-const App = () => {
-
-    const [counter,incCounter,decCounter] = useCounter();
+const Categories = () => {
+        const [counter,incCounter,decCounter] = useCounter();
     
-    return(
-        
-        <>
 
+       return(
         <div className='main-cont'>
-            <h3>App Component</h3>
+            <h3>Categories component</h3>
 
             <h1 style={myStyle}>{counter}</h1>
             <br />
@@ -27,12 +20,7 @@ const App = () => {
                 <button onClick={() => {incCounter()}} className='btn btn-success'>INC</button>
             </div>
         </div>
-
-        <hr /><hr/>
-        <Categories/>
-
-        </>
         
     )
 }
-export default App;
+export default Categories;

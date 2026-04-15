@@ -7,7 +7,6 @@ const myStyle = {
     fontSize : "60px"
 };
 
-
 const App = () => {
 
     const [counter,incCounter,decCounter] = useCounter();
