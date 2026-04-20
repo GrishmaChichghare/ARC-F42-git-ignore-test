@@ -1,12 +1,5 @@
-/* eslint-disable no-unused-vars */
+const SectionB = () => {
 
-const Nav = ({getDataFromChild}) => {
-
-    let name = "rajesh";
-    return(
-        <>
-        <h1>Nav Component </h1>
-        </>
-    )
+    return <h1 style={{color: "red"}}> Section B Component</h1>
 }
-export default Nav;
+export default SectionB;

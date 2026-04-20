@@ -1,3 +1,5 @@
-const SubCategories = () => <h1>SubCategories Component</h1>;
+const SectionC = () => {
 
-export default SubCategories;
+    return <h1 style={{color: "green"}}>Section C Component</h1>
+}
+export default SectionC;

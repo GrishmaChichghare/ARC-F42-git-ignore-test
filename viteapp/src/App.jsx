@@ -1,36 +1,29 @@
-import Categories from './components/categories';
-import './App.css';
-import { useCounter } from './customHook';
 
-const myStyle = {
-    color : "blue",
-    fontSize : "60px"
-};
+import './App.css';
 
 const App = () => {
 
-    const [counter,incCounter,decCounter] = useCounter();
-    
     return(
         
-        <>
-
         <div className='main-cont'>
-            <h3>App Component</h3>
 
-            <h1 style={myStyle}>{counter}</h1>
-            <br />
+            <h1 style={{ color: 'blue' }}>App Component</h1>
 
-            <div>
-                <button onClick={() => {decCounter()}} className='btn btn-danger mr-4'>DEC</button>
-                <button onClick={() => {incCounter()}} className='btn btn-success'>INC</button>
-            </div>
+            <hr /><hr />
+
+            <SectionA/>
+
+            <hr /><hr />
+
+            <SectionB/>
+
+            <hr /><hr />
+
+            <SectionC/>
+
+            <hr /> <hr/>
+        
         </div>
-
-        <hr /><hr/>
-        <Categories/>
-
-        </>
         
     )
 }
