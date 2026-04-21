@@ -3,8 +3,7 @@ import {useEffect, useState} from "react";
 
 const SectionB = () => {
 
-    const [display, setDisplay] = useState(false);
-
+const [display, setDisplay] = useState(false);
     useEffect(() => {
         for(let i=0; i <10000000; i++){
         
