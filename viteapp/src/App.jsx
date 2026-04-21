@@ -1,4 +1,10 @@
 
+import SectionA from './components/SectionA';
+// import SectionB from './components/SectionB';
+import SectionC from './components/SectionC';
+import {lazy, Suspense} from "react";
+
+const SectionB = lazy(() => import('./components/SectionB'));
 import './App.css';
 
 const App = () => {
@@ -14,8 +20,10 @@ const App = () => {
             <SectionA/>
 
             <hr /><hr />
-
-            <SectionB/>
+            
+            <Suspense fallback={<p>Loading...</p>}>
+                <SectionB/>
+            </Suspense>
 
             <hr /><hr />
 
