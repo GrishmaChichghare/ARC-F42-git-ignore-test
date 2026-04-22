@@ -8,6 +8,7 @@ const [display, setDisplay] = useState(false);
         for(let i=0; i <10000000; i++){
         
             if(i === 9999999){
+    
                 setDisplay(true);
             }
         }
