@@ -1,6 +1,6 @@
 import './index.css';
 
-const Job = () => {
-    return <h1 style={{ color: 'blue' }}>Job Component</h1>
+const Jobs = () => {
+    return <h1 style={{ color: 'blue' }}>Jobs Component</h1>
 }
-export default Job;
+export default Jobs;
