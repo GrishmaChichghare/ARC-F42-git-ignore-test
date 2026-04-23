@@ -1,10 +1,34 @@
 import './index.css';
 
 const Login = () => {
-    
+
+    const onSubmitData = async (event) => {
+        
+        event.preventDefault();
+        
+         const api = "https://apis.ccbp.in/login";
+         const userDetails = {
+            username: "rahul", password: "rahul@2021"
+        }
+        const options = {
+            method: "POST",
+            body: JSON.stringify(userDetails)
+        }
+        
+        try{
+            const response = await fetch(api, options);
+            const data = await response.json();
+            console.log(data);
+        }
+        catch(error){
+            console.log(error);
+        }
+    };
+
     return (
         <div className="login-cont">
-            <form className='w-50 p-4 rounded-large shadow '>
+            <h1 className="text-primary">Login</h1>
+            <form className='w-50 p-4 rounded-large shadow ' onSubmit={onSubmitData}>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Username</label>
                     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
