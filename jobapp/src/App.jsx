@@ -1,8 +1,8 @@
-import Home from './components/home';
-import Jobs from './components/job';
-import LogIn from './components/login';
-import { Routes, Route } from 'react-router-dom';
-import NotFound from './components/notFound';
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/home";
+import Jobs from "./components/job";
+import LogIn from "./components/login";
+import NotFound from "./components/notFound";
 
 const App = () => {
   return (
@@ -16,8 +16,7 @@ const App = () => {
         <Route path='/*' element={<NotFound />}></Route>
 
       </Routes>
-    </>
-      
+      </>
   );
 }
 
