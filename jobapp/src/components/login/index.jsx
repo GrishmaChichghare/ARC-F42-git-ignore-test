@@ -1,4 +1,5 @@
 import{useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import './index.css';
 
 const Login = () => {
@@ -8,6 +9,9 @@ const Login = () => {
         password: "",
         errorMsg: ""
     });
+
+    const navigate = useNavigate();
+
 
     const onSubmitData = async (event) => {
         event.preventDefault();
@@ -27,8 +31,10 @@ const Login = () => {
         try {
             const response = await fetch(api, options);
             const data = await response.json();
+            
             if (response.ok) {
                 setValues({...allValues, errorMsg: ""});
+                navigate("/");
             }
             else{
                 setValues({...allValues, errorMsg: data.error_msg});
@@ -47,7 +53,7 @@ const Login = () => {
             <form className='w-50 p-4 rounded-large shadow ' onSubmit={onSubmitData}>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Username</label>
-                    <input onChange={(e) => {setValues({...allValues, username: e.target.value})}} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                    <input onChange={(e) => {setValues({...allValues, username: e.target.value})}} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
                     <small id="emailHelp" className="form-text text-muted">We'll never share your username with anyone else.</small>
                 </div>
                 <div className="form-group">
