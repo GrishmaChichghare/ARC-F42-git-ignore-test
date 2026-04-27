@@ -35,6 +35,8 @@ const Login = () => {
             if (response.ok) {
                 setValues({...allValues, errorMsg: ""});
                 navigate("/");
+                console.log(data.jwt_token);
+
             }
             else{
                 setValues({...allValues, errorMsg: data.error_msg});
