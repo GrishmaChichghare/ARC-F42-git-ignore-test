@@ -5,8 +5,6 @@ import Cookies from 'js-cookie';
 import './index.css';
 import {useEffect} from 'react';
 
-
-
 const Jobs = () => {
 
     useEffect (() =>{
@@ -14,6 +12,7 @@ const Jobs = () => {
         const fetchJobs = async() => {
 
             const api = "https://apis.ccbp.in/jobs";
+            
             const token = Cookies.get('myToken');
 
             const options = {
