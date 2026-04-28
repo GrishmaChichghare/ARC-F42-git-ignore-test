@@ -21,7 +21,6 @@ const Navbar = () => {
                     </Link>
                 </li>
             </ul>
-
             <button className='btn btn-outline-primary '>Logout</button>
         </nav>
     );
