@@ -12,7 +12,7 @@ const ProtectedRoute = ({Component}) => {
         if (token === undefined) {
             navigate("/login");
         }
-    },[]);
+    });
 
     return <Component/>
 }
