@@ -8,7 +8,7 @@ const Navbar = () => {
                 <h2>Jobyy</h2>
             </Link>
 
-            <ul>
+            <ul className = "my-nav">
                 <li className='mr-3'>
                     <Link to ="/">
                         Home

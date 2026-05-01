@@ -8,11 +8,9 @@ const Home = () => {
         <div>
             <Navbar/>
             <br /><br />
-
             <div className='p-4'>
                 <h1 style={{width:"400px"}}>Find your dream job and explore it with your expertise...</h1>
                 <br /><br />
-                
                 <Link to = "/jobs" className='btn btn-primary'>Explore More</Link>
             </div>
         </div>

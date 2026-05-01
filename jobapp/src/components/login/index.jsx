@@ -23,6 +23,7 @@ const Login = () => {
     });
 
     const onSubmitData = async (event) => {
+       
         event.preventDefault();
 
         const api= "https://apis.ccbp.in/login";
@@ -75,7 +76,6 @@ const Login = () => {
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <br />
-
                 <b className='text-danger'>{allValues.errorMsg}</b>
             </form>
         </div>
