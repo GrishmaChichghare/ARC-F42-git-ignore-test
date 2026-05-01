@@ -2,9 +2,6 @@ import { FaStar } from "react-icons/fa";
 import { FaLocationDot, FaBriefcase } from "react-icons/fa6";
 import './index.css';
 
-
-
-
 // {
 //        "id": "bb95e51b-b1b2-4d97-bee4-1d5ec2b96751",
 //        "title": "Devops Engineer",
@@ -46,5 +43,4 @@ const JobsCard = ({jobsItem})=> {
         </li>
     )
 }
-
 export default JobsCard;
