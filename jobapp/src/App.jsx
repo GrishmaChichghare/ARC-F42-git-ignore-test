@@ -8,10 +8,9 @@ import ProtectedRoute from "./components/protectedRoute";
 const App = () => {
   return (
     <>
-    
+
       {/* <h1>App component</h1> */}
       <Routes>
-        
         <Route path='/' element={<ProtectedRoute Component={Home} />}></Route>
         <Route path='/login' element={<LogIn />}></Route>
         <Route path='/jobs' element={<ProtectedRoute Component={Jobs} />}></Route>
