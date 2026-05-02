@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 import './index.css';
 
 const Navbar = () => {
+    
     return (
         <nav className='nav-container'>
             <Link to = "/">

@@ -16,5 +16,4 @@ const ProtectedRoute = ({Component}) => {
 
     return <Component/>
 }
-
 export default ProtectedRoute;

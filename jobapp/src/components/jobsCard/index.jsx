@@ -13,6 +13,7 @@ import './index.css';
 //        "package_per_annum": "10 LPA"
 //         }
 
+
 const JobsCard = ({jobsItem})=> {
     return (
         <li className='p-3 rounded-lg shadow mb-4'>
